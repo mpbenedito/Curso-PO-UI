@@ -1,0 +1,32 @@
+<div class="form">
+
+<!-- método (1) de fazer o login: usando um two way databinding usando ngModel
+  <form>
+    <label for="login">Usuário</label>
+    <input type="text" id="login" name="login" [(ngModel)]="usuario" placeholder="usuário" >
+    <label for="password">Senha</label>
+    <input type="password" id="password" name="password" [(ngModel)]="senha" placeholder="senha" title="">
+    <button (click)="submitlogin1()" title="">Enviar</button>
+  </form>
+  -->
+
+<!--  método (2) de fazer o login: usando um binding de formulário (#ngForm)
+  <form #formLogin="ngForm" (ngSubmit)="submitLogin2(formLogin)">
+    <label for="login">Usuário</label>
+    <input type="text" id="login" name="login" [(ngModel)]="usuario" placeholder="usuário" >
+    <label for="password">Senha</label>
+    <input type="password" id="password" name="password" [(ngModel)]="senha" placeholder="senha" title="">
+    <button title="">Enviar</button>
+  </form>
+  -->
+
+  <!-- método (3) de fazer o login: usando um binding de formulário reativo (formgroup)-->
+  <form [formGroup]="loginForm" (ngSubmit)="submitLogin3()">
+    <label for="login">Usuário</label>
+    <input type="text" id="login" name="login" formControlName="userLogin" placeholder="usuário" >
+    <label for="password">Senha</label>
+    <input type="password" id="password" name="password" formControlName="userSenha" placeholder="senha" title="">
+    <button title="">Enviar</button>
+  </form>
+
+</div>
